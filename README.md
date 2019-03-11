@@ -1,0 +1,2 @@
+# SoftGreen
+Faculty Scheduler input
