@@ -1,7 +1,9 @@
 ############ SoftGreen ##########
+
 ****Faculty Scheduler input*****
 
 Description
+
 SoftGreen is creating a scheduling system using forms that teachers will use to choose course sections for each semester. 
 The forms must have either a calendar view or drop down menus for teachers to use, and these menus will allow users to see which classes in real time are available and not available.
 When a teacher signs up for a course section it must update the forms immediately. 
