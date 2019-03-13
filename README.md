@@ -1,5 +1,5 @@
 ############ SoftGreen ##########
-****Faculty Scheduler input*****
+****Faculty Scheduler input
 
 Description
 SoftGreen is creating a scheduling system using forms that teachers will use to choose course sections for each semester. 
@@ -17,3 +17,5 @@ Other Communication Tools
 
 Team Roles
 1. Raghu Khanal: Testing lead, Lead Programmer
+2.Israt Liju: team manager, client liason
+
