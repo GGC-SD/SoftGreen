@@ -16,6 +16,7 @@ The goal of SoftGreen is to allow teachers to sign up for course sections in an 
 [Jira](https://jira.ggc.edu/projects/SOF/summary)
 
 ## Other Communication Tools
+[Discord] (https://discordapp.com/)
 
 ## Team Roles
 1. Raghu Khanal: Testing lead, Lead Programmer :computer::movie_camera: :guitar:
