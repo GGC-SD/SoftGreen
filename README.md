@@ -1,4 +1,4 @@
-# SoftGreen - Faculty Scheduler input*
+# SoftGreen - Faculty Scheduler input
 Faculty Scheduler input
 
 ## Description
@@ -18,7 +18,8 @@ The goal of SoftGreen is to allow teachers to sign up for course sections in an 
 ## Other Communication Tools
 
 ## Team Roles
-1. Raghu Khanal: Testing lead, Lead Programmer :computer:
- :movie_camera: :guitar:
+1. Raghu Khanal: Testing lead, Lead Programmer :computer::movie_camera: :guitar:
+2. Israt Liju: team manager, client liason
+3. Nick Risley: Data Modeler, Documentation Lead
 
 ## Installation Instructions:
