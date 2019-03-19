@@ -19,7 +19,7 @@ The goal of SoftGreen is to allow teachers to sign up for course sections in an 
 
 ## Team Roles
 1. Raghu Khanal: Testing lead, Lead Programmer :computer::movie_camera: :guitar:
-2. Israt Liju: team manager, client liason
-3. Nick Risley: Data Modeler, Documentation Lead
+2. Israt Liju: team manager, client liason :boom: :musical_note: :fire:
+3. Nick Risley: Data Modeler, Documentation Lead :ok_hand: :running: :japanese_goblin:
 
 ## Installation Instructions:
