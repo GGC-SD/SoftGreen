@@ -1,5 +1,5 @@
-# SoftGreen - Faculty Scheduler input
-Faculty Scheduler input
+# SoftGreen - Faculty Schedule Form
+Faculty Schedule Form
 
 ## Description
 SoftGreen is creating a scheduling system using forms that teachers will use to choose course sections for each semester. 
