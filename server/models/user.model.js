@@ -31,10 +31,15 @@ const UserSchema = new mongoose.Schema({
 module.exports = mongoose.model('User', UserSchema);
 
 const ScheduleSchema = new mongoose.schema({
-  id: {
+  crn: {
     type: Integer,
     required: false,
     unique: true
+  },
+  dept: {
+    type: String,
+    required: false,
+    unique: false
   },
   course: {
       type: String,
@@ -43,6 +48,11 @@ const ScheduleSchema = new mongoose.schema({
   },
   courseSection: {
     type: String,
+    required: false,
+    unique: false
+  },
+  courseSectionNum: {
+    type: Integer,
     required: false,
     unique: false
   },
@@ -77,6 +87,21 @@ const ScheduleSchema = new mongoose.schema({
     unique: false
   },
   per: {
+    type: Integer,
+    required: false,
+    unique: false
+  },
+  labdays: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  start2: {
+    type: Integer,
+    required: false,
+    unique: false
+  },
+  end2: {
     type: Integer,
     required: false,
     unique: false
@@ -126,6 +151,7 @@ const ScheduleSchema = new mongoose.schema({
     required: false,
     unique: false
   },
+
 
 })
 
