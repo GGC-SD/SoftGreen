@@ -5937,7 +5937,7 @@ window.globalEvents = new events__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Khana\Desktop\SoftGreen\mean\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! C:\Users\Khana\Desktop\SoftGreen\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

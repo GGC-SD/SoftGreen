@@ -24,3 +24,11 @@ The goal of SoftGreen is to allow teachers to sign up for course sections in an 
 3. Nick Risley: Data Modeler, Documentation Lead :ok_hand: :running: :japanese_goblin:
 
 ## Installation Instructions:
+npm install
+
+## Dev Server Instructions:
+npm start
+
+## Libraries Used:
+Material Fonts
+Material Icons

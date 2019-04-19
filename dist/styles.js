@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Khana\Desktop\SoftGreen\mean\src\styles.scss */"./src/styles.scss");
+module.exports = __webpack_require__(/*! C:\Users\Khana\Desktop\SoftGreen\src\styles.scss */"./src/styles.scss");
 
 
 /***/ })
