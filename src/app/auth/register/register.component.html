@@ -8,30 +8,22 @@
         <tr>
           <td>
             <mat-form-field>
-              <input matInput placeholder="Fullname" formControlName="fullname" name="fullname" required>
+              <input matInput placeholder="User Id" formControlName="userId" name="userId" required>
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td>
             <mat-form-field>
-              <input matInput placeholder="Email" formControlName="email" name="email" required>
-              <mat-error *ngIf="email.invalid && email.errors.email">Invalid email address</mat-error>
+              <input matInput placeholder="Pin Number" formControlName="pinNumber" type="password" name="pinNumber" required>
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td>
             <mat-form-field>
-              <input matInput placeholder="Password" formControlName="password" type="password" name="password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field>
-              <input matInput placeholder="Reapet Password" formControlName="repeatPassword" type="password" name="repeatPassword" required>
-              <mat-error *ngIf="repeatPassword.invalid && repeatPassword.errors.passwordMatch">Password mismatch</mat-error>
+              <input matInput placeholder="Repeat Pin Number" formControlName="repeatPinNumber" type="password" name="repeatPinNumber" required>
+              <mat-error *ngIf="repeatPassword.invalid && repeatPassword.errors.passwordMatch">Pin Number mismatch</mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -40,6 +32,6 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="register()" color="primary">Register</button>
-    <span>Allrady have an account ? <a [routerLink]="['/auth/login']">login</a> here</span>
+    <span>Already have an account ? <a [routerLink]="['/auth/login']">login</a> here</span>
   </mat-card-actions>
 </mat-card>
