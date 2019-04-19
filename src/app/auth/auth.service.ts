@@ -27,7 +27,7 @@ export class AuthService {
     });
   }
 
-  register(userId : number,pinNumber : string, repeatPinNumber : string) : Observable <any> {
+  register(userId : number,pinNumber : number, repeatPinNumber : number) : Observable <any> {
     return Observable.create(observer => {
       this.http.post('/api/auth/register', {
         userId,

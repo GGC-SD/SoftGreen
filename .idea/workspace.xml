@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="adf739db-5124-44d7-8e70-8388dca0e7df" name="Default Changelist" comment="fixing the v error on the build">
+    <list default="true" id="adf739db-5124-44d7-8e70-8388dca0e7df" name="Default Changelist" comment="registration fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js" afterPath="$PROJECT_DIR$/dist/main.js" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js.map" afterPath="$PROJECT_DIR$/dist/main.js.map" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/user.controller.js" afterPath="$PROJECT_DIR$/server/controllers/user.controller.js" />
+      <change beforePath="$PROJECT_DIR$/server/models/user.model.js" afterPath="$PROJECT_DIR$/server/models/user.model.js" />
+      <change beforePath="$PROJECT_DIR$/server/routes/auth.route.js" afterPath="$PROJECT_DIR$/server/routes/auth.route.js" />
       <change beforePath="$PROJECT_DIR$/src/app/auth/auth.service.ts" afterPath="$PROJECT_DIR$/src/app/auth/auth.service.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/register/register.component.html" afterPath="$PROJECT_DIR$/src/app/auth/register/register.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/register/register.component.ts" afterPath="$PROJECT_DIR$/src/app/auth/register/register.component.ts" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -93,30 +92,47 @@
           <file leaf-file-name="auth.service.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/app/auth/auth.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="588">
-                  <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+                <state relative-caret-position="273">
+                  <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="register.component.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="register.component.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/app/auth/register/register.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="546">
-                  <caret line="31" column="2" lean-forward="false" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+                <state relative-caret-position="861">
+                  <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="user.model.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/models/user.model.js">
+          <file leaf-file-name="auth.route.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/routes/auth.route.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-149">
-                  <caret line="32" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+                <state relative-caret-position="336">
+                  <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="27" />
                   <folding />
                 </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/server/controllers/user.controller.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="441">
+                  <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="null/mean/users" pinned="false" current-in-tab="false">
+            <entry file="mongo://null/mean/users">
+              <provider selected="true" editor-type-id="MongoData">
+                <state />
               </provider>
             </entry>
           </file>
@@ -124,7 +140,17 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="register.component.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="user.model.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/server/models/user.model.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="register.component.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/app/auth/register/register.component.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="567">
@@ -174,13 +200,14 @@
         <option value="$PROJECT_DIR$/CNAME" />
         <option value="$PROJECT_DIR$/server/routes/index.route.js" />
         <option value="$PROJECT_DIR$/src/app/auth/login/login.component.html" />
-        <option value="$PROJECT_DIR$/server/models/user.model.js" />
         <option value="$PROJECT_DIR$/server/models/schedule.model.js" />
-        <option value="$PROJECT_DIR$/server/routes/auth.route.js" />
         <option value="$PROJECT_DIR$/src/app/home/home.component.html" />
-        <option value="$PROJECT_DIR$/src/app/auth/auth.service.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/register/register.component.html" />
         <option value="$PROJECT_DIR$/src/app/auth/register/register.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/auth/auth.service.ts" />
+        <option value="$PROJECT_DIR$/server/routes/auth.route.js" />
+        <option value="$PROJECT_DIR$/server/models/user.model.js" />
+        <option value="$PROJECT_DIR$/server/controllers/user.controller.js" />
       </list>
     </option>
   </component>
@@ -235,7 +262,19 @@
               <item name="SoftGreen" type="b2602c69:ProjectViewProjectNode" />
               <item name="SoftGreen" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SoftGreen" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoftGreen" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SoftGreen" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoftGreen" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SoftGreen" type="b2602c69:ProjectViewProjectNode" />
@@ -349,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555715134796</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="registration fix">
+      <created>1555715210385</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1555715210385</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -359,11 +405,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979262" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294509" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979262" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294509" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294509" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10891089" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15085968" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15085968" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18574257" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -392,7 +438,8 @@
     <MESSAGE value="fixing the v error on the build" />
     <MESSAGE value="Changing the register fields to be UserId and Pin Number instead of the default email, full name and password." />
     <MESSAGE value="Fixing the registration fields types" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing the registration fields types" />
+    <MESSAGE value="registration fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="registration fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -663,14 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/config/passport.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -732,26 +771,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/routes/auth.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/routes/user.route.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/user.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="59" lean-forward="false" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -764,26 +787,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/user.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-149">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/home/home.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -796,10 +803,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/register/register.component.ts">
+    <entry file="file://$PROJECT_DIR$/server/config/passport.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
-          <caret line="31" column="2" lean-forward="false" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/passport/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/register/register.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes/auth.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/user.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
