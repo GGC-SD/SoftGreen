@@ -705,12 +705,12 @@ var AuthService = /** @class */ (function () {
         this.token = token;
         this.$userSource = new rxjs_Subject__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
     }
-    AuthService.prototype.login = function (email, password) {
+    AuthService.prototype.login = function (userId, pinNumber) {
         var _this = this;
         return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (observer) {
             _this.http.post('/api/auth/login', {
-                email: email,
-                password: password
+                userId: userId,
+                pinNumber: pinNumber
             }).subscribe(function (data) {
                 observer.next({ user: data.user });
                 _this.setUser(data.user);
@@ -779,7 +779,7 @@ var AuthService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <mat-card-title>Login</mat-card-title>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <form class=\"example-form\">\r\n      <table cellspacing=\"0\">\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"User ID\" [(ngModel)]=\"email\" name=\"user-id\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Pin Number\" [(ngModel)]=\"password\" type=\"password\" name=\"pin-number\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n      </table>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-raised-button (click)=\"login()\" color=\"primary\">Login</button>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
+module.exports = "<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <mat-card-title>Login</mat-card-title>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <form class=\"example-form\">\r\n      <table cellspacing=\"0\">\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"User ID\" [(ngModel)]=\"userId\" name=\"userId\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Pin Number\" [(ngModel)]=\"pinNumber\" type=\"password\" name=\"pinNumber\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n      </table>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-raised-button (click)=\"login()\" color=\"primary\">Login</button>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -817,7 +817,7 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        this.authService.login(this.email, this.password)
+        this.authService.login(this.userId, this.pinNumber)
             .subscribe(function (data) {
             _this.router.navigate(['']);
         });
