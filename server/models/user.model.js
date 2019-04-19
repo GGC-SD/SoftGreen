@@ -29,3 +29,104 @@ const UserSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model('User', UserSchema);
+
+const ScheduleSchema = new mongoose.schema({
+  id: {
+    type: Integer,
+    required: false,
+    unique: true
+  },
+  course: {
+      type: String,
+      required: false,
+      unqiue:false
+  },
+  courseSection: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  sectNum: {
+    type: Integer,
+    required: false,
+    unique: true
+  },
+  term: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  days: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  start: {
+    type: Integer,
+    required: false,
+    unique: false
+  },
+  end: {
+    type: Integer,
+    required: false,
+    unique: false
+  },
+  classroom: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  per: {
+    type: Integer,
+    required: false,
+    unique: false
+  },
+  labroom: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  credits: {
+    type: Integer,
+    required: false,
+    unique: false
+  },
+  code: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  lastname: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  firstname: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  ptft: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  max: {
+    type: Integer,
+    required: false,
+    unique: false
+  },
+  notes: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  tomnotes: {
+    type: String,
+    required: false,
+    unique: false
+  },
+
+})
+
+module.exports = mongoose.model('Schedule', ScheduleSchema);
