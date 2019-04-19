@@ -719,14 +719,13 @@ var AuthService = /** @class */ (function () {
             });
         });
     };
-    AuthService.prototype.register = function (fullname, email, password, repeatPassword) {
+    AuthService.prototype.register = function (userId, pinNumber, repeatPinNumber) {
         var _this = this;
         return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (observer) {
             _this.http.post('/api/auth/register', {
-                fullname: fullname,
-                email: email,
-                password: password,
-                repeatPassword: repeatPassword
+                userId: userId,
+                pinNumber: pinNumber,
+                repeatPinNumber: repeatPinNumber
             }).subscribe(function (data) {
                 observer.next({ user: data.user });
                 _this.setUser(data.user);
@@ -845,7 +844,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <mat-card-title>Register</mat-card-title>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <form class=\"example-form\">\r\n      <table cellspacing=\"0\" [formGroup]=\"userForm\">\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Fullname\" formControlName=\"fullname\" name=\"fullname\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Email\" formControlName=\"email\" name=\"email\" required>\r\n              <mat-error *ngIf=\"email.invalid && email.errors.email\">Invalid email address</mat-error>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Password\" formControlName=\"password\" type=\"password\" name=\"password\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Reapet Password\" formControlName=\"repeatPassword\" type=\"password\" name=\"repeatPassword\" required>\r\n              <mat-error *ngIf=\"repeatPassword.invalid && repeatPassword.errors.passwordMatch\">Password mismatch</mat-error>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n      </table>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-raised-button (click)=\"register()\" color=\"primary\">Register</button>\r\n    <span>Allrady have an account ? <a [routerLink]=\"['/auth/login']\">login</a> here</span>\r\n  </mat-card-actions>\r\n</mat-card>"
+module.exports = "<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <mat-card-title>Register</mat-card-title>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <form class=\"example-form\">\r\n      <table cellspacing=\"0\" [formGroup]=\"userForm\">\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"User Id\" formControlName=\"userId\" name=\"userId\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Pin Number\" formControlName=\"pinNumber\" type=\"password\" name=\"pinNumber\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Repeat Pin Number\" formControlName=\"repeatPinNumber\" type=\"password\" name=\"repeatPinNumber\" required>\r\n              <mat-error *ngIf=\"repeatPinNumber.invalid && repeatPinNumber.errors.pinMatch\">Pin Number mismatch</mat-error>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n      </table>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-raised-button (click)=\"register()\" color=\"primary\">Register</button>\r\n    <span>Already have an account ? <a [routerLink]=\"['/auth/login']\">login</a> here</span>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -881,37 +880,31 @@ var RegisterComponent = /** @class */ (function () {
         this.authService = authService;
         this.router = router;
         this.userForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            fullname: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]),
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
-            repeatPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, this.passwordsMatchValidator])
+            userId: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            pinNumber: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            repeatPinNumber: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, this.pinMatchValidator])
         });
     }
     RegisterComponent.prototype.ngOnInit = function () {
     };
-    RegisterComponent.prototype.passwordsMatchValidator = function (control) {
-        var password = control.root.get('password');
-        return password && control.value !== password.value ? {
-            passwordMatch: true
+    RegisterComponent.prototype.pinMatchValidator = function (control) {
+        var pinNumber = control.root.get('pinNumber');
+        return pinNumber && control.value !== pinNumber.value ? {
+            pinMatch: true
         } : null;
     };
-    Object.defineProperty(RegisterComponent.prototype, "fullname", {
-        get: function () { return this.userForm.get('fullname'); },
+    Object.defineProperty(RegisterComponent.prototype, "userId", {
+        get: function () { return this.userForm.get('userId'); },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(RegisterComponent.prototype, "email", {
-        get: function () { return this.userForm.get('email'); },
+    Object.defineProperty(RegisterComponent.prototype, "pinNumber", {
+        get: function () { return this.userForm.get('pinNumber'); },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(RegisterComponent.prototype, "password", {
-        get: function () { return this.userForm.get('password'); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(RegisterComponent.prototype, "repeatPassword", {
-        get: function () { return this.userForm.get('repeatPassword'); },
+    Object.defineProperty(RegisterComponent.prototype, "repeatPinNumber", {
+        get: function () { return this.userForm.get('repeatPinNumber'); },
         enumerable: true,
         configurable: true
     });
@@ -919,8 +912,8 @@ var RegisterComponent = /** @class */ (function () {
         var _this = this;
         if (!this.userForm.valid)
             return;
-        var _a = this.userForm.getRawValue(), fullname = _a.fullname, email = _a.email, password = _a.password, repeatPassword = _a.repeatPassword;
-        this.authService.register(fullname, email, password, repeatPassword)
+        var _a = this.userForm.getRawValue(), userId = _a.userId, pinNumber = _a.pinNumber, repeatPinNumber = _a.repeatPinNumber;
+        this.authService.register(userId, pinNumber, repeatPinNumber)
             .subscribe(function (data) {
             _this.router.navigate(['']);
         });

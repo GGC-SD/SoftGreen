@@ -23,7 +23,7 @@
           <td>
             <mat-form-field>
               <input matInput placeholder="Repeat Pin Number" formControlName="repeatPinNumber" type="password" name="repeatPinNumber" required>
-              <mat-error *ngIf="repeatPassword.invalid && repeatPassword.errors.passwordMatch">Pin Number mismatch</mat-error>
+              <mat-error *ngIf="repeatPinNumber.invalid && repeatPinNumber.errors.pinMatch">Pin Number mismatch</mat-error>
             </mat-form-field>
           </td>
         </tr>

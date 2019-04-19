@@ -18,8 +18,8 @@ export class RegisterComponent implements OnInit {
   }
 
   pinMatchValidator(control: FormControl): ValidationErrors {
-    let password = control.root.get('password');
-    return password && control.value !== password.value ? {
+    let pinNumber = control.root.get('pinNumber');
+    return pinNumber && control.value !== pinNumber.value ? {
       pinMatch: true
     }: null;
   }
@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     userId: new FormControl('', [Validators.required]),
     pinNumber: new FormControl('', [Validators.required]),
     repeatPinNumber: new FormControl('', [Validators.required, this.pinMatchValidator])
-  })
+  });
 
   get userId(): any { return this.userForm.get('userId'); }
   get pinNumber(): any { return this.userForm.get('pinNumber'); }
