@@ -17,37 +17,34 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  passwordsMatchValidator(control: FormControl): ValidationErrors {
+  pinMatchValidator(control: FormControl): ValidationErrors {
     let password = control.root.get('password');
     return password && control.value !== password.value ? {
-      passwordMatch: true
+      pinMatch: true
     }: null;
   }
 
   userForm = new FormGroup({
-    fullname: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
-    repeatPassword: new FormControl('', [Validators.required, this.passwordsMatchValidator])
+    userId: new FormControl('', [Validators.required]),
+    pinNumber: new FormControl('', [Validators.required]),
+    repeatPinNumber: new FormControl('', [Validators.required, this.pinMatchValidator])
   })
 
-  get fullname(): any { return this.userForm.get('fullname'); }
-  get email(): any { return this.userForm.get('email'); }
-  get password(): any { return this.userForm.get('password'); }
-  get repeatPassword(): any { return this.userForm.get('repeatPassword'); }
+  get userId(): any { return this.userForm.get('userId'); }
+  get pinNumber(): any { return this.userForm.get('pinNumber'); }
+  get repeatPinNumber(): any { return this.userForm.get('repeatPinNumber'); }
 
   register() {
 
     if(!this.userForm.valid) return;
 
     let {
-      fullname,
-      email,
-      password,
-      repeatPassword
+      userId,
+      pinNumber,
+      repeatPinNumber
     } = this.userForm.getRawValue();
 
-    this.authService.register(fullname, email, password, repeatPassword)
+    this.authService.register(userId, pinNumber, repeatPinNumber)
     .subscribe(data => {
       this.router.navigate(['']);
     })
