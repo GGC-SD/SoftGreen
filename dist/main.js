@@ -705,12 +705,12 @@ var AuthService = /** @class */ (function () {
         this.token = token;
         this.$userSource = new rxjs_Subject__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
     }
-    AuthService.prototype.login = function (email, password) {
+    AuthService.prototype.login = function (userId, pinNumber) {
         var _this = this;
         return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (observer) {
             _this.http.post('/api/auth/login', {
-                email: email,
-                password: password
+                userId: userId,
+                pinNumber: pinNumber
             }).subscribe(function (data) {
                 observer.next({ user: data.user });
                 _this.setUser(data.user);
@@ -719,14 +719,13 @@ var AuthService = /** @class */ (function () {
             });
         });
     };
-    AuthService.prototype.register = function (fullname, email, password, repeatPassword) {
+    AuthService.prototype.register = function (userId, pinNumber, repeatPinNumber) {
         var _this = this;
         return rxjs_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"].create(function (observer) {
             _this.http.post('/api/auth/register', {
-                fullname: fullname,
-                email: email,
-                password: password,
-                repeatPassword: repeatPassword
+                userId: userId,
+                pinNumber: pinNumber,
+                repeatPinNumber: repeatPinNumber
             }).subscribe(function (data) {
                 observer.next({ user: data.user });
                 _this.setUser(data.user);
@@ -780,7 +779,7 @@ var AuthService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <mat-card-title>Login</mat-card-title>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <form class=\"example-form\">\r\n      <table cellspacing=\"0\">\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"User ID\" [(ngModel)]=\"email\" name=\"user-id\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Pin Number\" [(ngModel)]=\"password\" type=\"password\" name=\"pin-number\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n      </table>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-raised-button (click)=\"login()\" color=\"primary\">Login</button>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
+module.exports = "<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <mat-card-title>Login</mat-card-title>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <form class=\"example-form\">\r\n      <table cellspacing=\"0\">\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"User ID\" [(ngModel)]=\"userId\" name=\"userId\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Pin Number\" [(ngModel)]=\"pinNumber\" type=\"password\" name=\"pinNumber\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n      </table>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-raised-button (click)=\"login()\" color=\"primary\">Login</button>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -818,7 +817,7 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        this.authService.login(this.email, this.password)
+        this.authService.login(this.userId, this.pinNumber)
             .subscribe(function (data) {
             _this.router.navigate(['']);
         });
@@ -845,7 +844,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <mat-card-title>Register</mat-card-title>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <form class=\"example-form\">\r\n      <table cellspacing=\"0\" [formGroup]=\"userForm\">\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Fullname\" formControlName=\"fullname\" name=\"fullname\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Email\" formControlName=\"email\" name=\"email\" required>\r\n              <mat-error *ngIf=\"email.invalid && email.errors.email\">Invalid email address</mat-error>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Password\" formControlName=\"password\" type=\"password\" name=\"password\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Reapet Password\" formControlName=\"repeatPassword\" type=\"password\" name=\"repeatPassword\" required>\r\n              <mat-error *ngIf=\"repeatPassword.invalid && repeatPassword.errors.passwordMatch\">Password mismatch</mat-error>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n      </table>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-raised-button (click)=\"register()\" color=\"primary\">Register</button>\r\n    <span>Allrady have an account ? <a [routerLink]=\"['/auth/login']\">login</a> here</span>\r\n  </mat-card-actions>\r\n</mat-card>"
+module.exports = "<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <mat-card-title>Register</mat-card-title>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <form class=\"example-form\">\r\n      <table cellspacing=\"0\" [formGroup]=\"userForm\">\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"User Id\" formControlName=\"userId\" name=\"userId\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Pin Number\" formControlName=\"pinNumber\" type=\"password\" name=\"pinNumber\" required>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <td>\r\n            <mat-form-field>\r\n              <input matInput placeholder=\"Repeat Pin Number\" formControlName=\"repeatPinNumber\" type=\"password\" name=\"repeatPinNumber\" required>\r\n              <mat-error *ngIf=\"repeatPinNumber.invalid && repeatPinNumber.errors.pinMatch\">Pin Number mismatch</mat-error>\r\n            </mat-form-field>\r\n          </td>\r\n        </tr>\r\n      </table>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-raised-button (click)=\"register()\" color=\"primary\">Register</button>\r\n    <span>Already have an account ? <a [routerLink]=\"['/auth/login']\">login</a> here</span>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -881,37 +880,31 @@ var RegisterComponent = /** @class */ (function () {
         this.authService = authService;
         this.router = router;
         this.userForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            fullname: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]),
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
-            repeatPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, this.passwordsMatchValidator])
+            userId: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            pinNumber: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            repeatPinNumber: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, this.pinMatchValidator])
         });
     }
     RegisterComponent.prototype.ngOnInit = function () {
     };
-    RegisterComponent.prototype.passwordsMatchValidator = function (control) {
-        var password = control.root.get('password');
-        return password && control.value !== password.value ? {
-            passwordMatch: true
+    RegisterComponent.prototype.pinMatchValidator = function (control) {
+        var pinNumber = control.root.get('pinNumber');
+        return pinNumber && control.value !== pinNumber.value ? {
+            pinMatch: true
         } : null;
     };
-    Object.defineProperty(RegisterComponent.prototype, "fullname", {
-        get: function () { return this.userForm.get('fullname'); },
+    Object.defineProperty(RegisterComponent.prototype, "userId", {
+        get: function () { return this.userForm.get('userId'); },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(RegisterComponent.prototype, "email", {
-        get: function () { return this.userForm.get('email'); },
+    Object.defineProperty(RegisterComponent.prototype, "pinNumber", {
+        get: function () { return this.userForm.get('pinNumber'); },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(RegisterComponent.prototype, "password", {
-        get: function () { return this.userForm.get('password'); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(RegisterComponent.prototype, "repeatPassword", {
-        get: function () { return this.userForm.get('repeatPassword'); },
+    Object.defineProperty(RegisterComponent.prototype, "repeatPinNumber", {
+        get: function () { return this.userForm.get('repeatPinNumber'); },
         enumerable: true,
         configurable: true
     });
@@ -919,8 +912,8 @@ var RegisterComponent = /** @class */ (function () {
         var _this = this;
         if (!this.userForm.valid)
             return;
-        var _a = this.userForm.getRawValue(), fullname = _a.fullname, email = _a.email, password = _a.password, repeatPassword = _a.repeatPassword;
-        this.authService.register(fullname, email, password, repeatPassword)
+        var _a = this.userForm.getRawValue(), userId = _a.userId, pinNumber = _a.pinNumber, repeatPinNumber = _a.repeatPinNumber;
+        this.authService.register(userId, pinNumber, repeatPinNumber)
             .subscribe(function (data) {
             _this.router.navigate(['']);
         });
@@ -1078,7 +1071,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form>\r\n    <div class=\"\" id=\"term_selection\">\r\n      <div class=\"form-group\">\r\n  <label for=\"exampleFormControlSelect1\">Term: </label>\r\n  <select class=\"form-control\" id=\"exampleFormControlSelect1\">\r\n    <option>Select one</option>\r\n    <option>Fall 2018</option>\r\n    <option>Spring 2019</option>\r\n    <option>Summer 2019</option>\r\n    <option>Fall 2019</option>\r\n  </select>\r\n</div>\r\n    </div>\r\n    <div class=\"\" id=\"subject_selection\">\r\n      <div class=\"form-group\">\r\n   <label for=\"exampleFormControlSelect2\">Please Select Course(s): </label>\r\n   <select multiple class=\"form-control\" id=\"exampleFormControlSelect2\">\r\n     <option value=\"4220 Advanced Data Analytics\">4220\r\nAdvanced Data Analytics</option>\r\n <option value=\"4260 Software Testing and QA\r\n\">4260 Software Testing and QA\r\n</option>\r\n <option value=\"1001 Intro to Computing-Hybrid\">1001 Intro to Computing-Hybrid</option>\r\n <option value=\"1001 Intro to Computing\">1001 Intro to Computing</option>\r\n <option value=\"2110 Digital Media\">2110 Digital Media</option>\r\n <option value=\"2110 Digital Media-Hybrid\">2110 Digital Media-Hybrid</option>\r\n <option value=\"2110H Digital Media-Hybrid Honers\">2110 Digital Media-Hybrid Honers</option>\r\n <option value=\"2120 intro to Programming\">2120 intro to Programming</option>\r\n <option value=\"2130 Web Technologies\">2130\r\nWeb Technologies</option>\r\n <option value=\"2140 Programming Fundamentals\">2140\r\nProgramming Fundamentals</option>\r\n <option value=\"2150 Intermediate Programming\">2150\r\nIntermediate Programming</option>\r\n <option value=\"2201 Introduction to Info Systems\">2201 Introduction to Info Systems</option>\r\n <option value=\"2500 Intro to Undergrad Research\">2500 Intro to Undergrad Research</option>\r\n <option value=\"3100 Introduction to Networks\">3100 Introduction to Networks</option>\r\n <option value=\"3150 Advanced Programming\">3150 Advanced Programming</option>\r\n <option value=\"3200 Intro to Databases\">3200 Intro to Databases</option>\r\n <option value=\"3300 Information Security\">3300 Information Security</option>\r\n <option value=\"3350 Digital Commerce\">3350\r\nDigital Commerce</option>\r\n <option value=\"3450 Comp Graphics and Multimedia\">3450 Comp Graphics and Multimedia</option>\r\n <option value=\"3600 Operating Systems\">3600\r\nOperating Systems</option>\r\n <option value=\"3700 Systems Analysis and Design\">3700 Systems Analysis and Design</option>\r\n <option value=\"3860 Software Development I\">3860 Software Development I</option>\r\n <option value=\"3870 Software Development II\">3870 Software Development II</option>\r\n <option value=\"3900 Professional Pract & Ethics\">3900 Professional Pract & Ethics</\r\n <option value=\"4100 Advanced Networks\">4100\r\nAdvanced Networks</option>\r\n <option value=\"4110 Digital Media Capstone Project\">4110 Digital Media Capstone Project</option>\r\n <option value=\"4130 Human Computer Interaction\">4130 Human Computer Interaction</option>\r\n <option value=\"4150 Enterprise Process Integration\">4150 Enterprise Process Integration</option>\r\n <option value=\"4200 Advanced Databases\">4200 Advanced Databases</option>\r\n <option value=\"4210 Information Analytics\">4210 Information Analytics</option>\r\n <option value=\"4260 Software Testing and QA\">4260 Software Testing and QA</option>\r\n <option value=\"4320 Internet Security\">4320\r\nInternet Security</option>\r\n <option value=\"4330 System Administration\">4330 System Administration</option>\r\n <option value=\"4400 Special Topics in Infor. Tech.\">4400 Special Topics in Infor. Tech.</option>\r\n <option value=\"4450 Web Development\">4450\r\nWeb Development</option>\r\n <option value=\"4500 Undergraduate Research Project\">4500 Undergraduate Research Project</option>\r\n <option value=\"4550 Mobile Application Development\">4550 Mobile Application Development</option>\r\n <option value=\"4650 Game Development\">4650 Game Development</option>\r\n <option value=\"4700 Artificial Intelligence\">4700 Artificial Intelligence</option>\r\n <option value=\"4750 Enterprise Architecture Design\">4750 Enterprise Architecture Design</option>\r\n <option value=\"4800 Internship in Service Learning\">4800 Internship in Service Learning</option>\r\n <option value=\"4810 Info Technology Project I\">4810\r\nInfo Technology Project I</option>\r\n <option value=\"4860 Software Development Project\">4860 Software Development Project\r\n</option>\r\n <option value=\"4900 Info Technology Internship\">4900 Info Technology Internship</option>\r\n   </select>\r\n </div>\r\n\r\n <div class=\"\">\r\n  <form action=\"/action_page.php\">\r\n  <input type=\"checkbox\" name=\"Monday\" value=\"Monday\"> Monday\r\n  <input type=\"checkbox\" name=\"Tuesday\" value=\"Tuesday\"> Tuesday\r\n  <input type=\"checkbox\" name=\"Wednesday\" value=\"Wednesday\" > Wednesday\r\n  <input type=\"checkbox\" name=\"Thursday\" value=\"Thursday\"> Thursday\r\n  <input type=\"checkbox\" name=\"Friday\" value=\"Friday\"> Friday\r\n  <input type=\"checkbox\" name=\"Saturday\" value=\"Saturday\" > Saturday\r\n  </form>\r\n"
+module.exports = "<p>\r\n  home\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1342,7 +1335,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Khana\Desktop\SoftGreen\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\kapil\Desktop\Raghu Project\SoftGreen\src\main.ts */"./src/main.ts");
 
 
 /***/ })

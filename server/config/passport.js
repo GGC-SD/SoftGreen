@@ -8,14 +8,15 @@ const User = require('../models/user.model');
 const config = require('./config');
 
 const localLogin = new LocalStrategy({
-  usernameField: 'email'
-}, async (email, password, done) => {
-  let user = await User.findOne({ email });
-  if (!user || !bcrypt.compareSync(password, user.hashedPassword)) {
+  usernameField: 'userId',
+   passwordField: 'pinNumber'
+}, async (userId, pinNumber, done) => {
+  let user = await User.findOne({ userId });
+  if (!user || !bcrypt.compareSync(pinNumber, user.hashedPin)) {
     return done(null, false, { error: 'Your login details could not be verified. Please try again.' });
   }
   user = user.toObject();
-  delete user.hashedPassword;
+  delete user.hashedPin;
   done(null, user);
 });
 
@@ -28,7 +29,7 @@ const jwtLogin = new JwtStrategy({
     return done(null, false);
   }
   user = user.toObject();
-  delete user.hashedPassword;
+  delete user.hashedPin;
   done(null, user);
 });
 

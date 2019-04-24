@@ -12,14 +12,14 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  email: string;
-  password: string;
+  userId: number;
+  pinNumber: number;
 
   ngOnInit() {
   }
 
   login(): void {
-    this.authService.login(this.email, this.password)
+    this.authService.login(this.userId, this.pinNumber)
     .subscribe(data => {
       this.router.navigate(['']);
     })
