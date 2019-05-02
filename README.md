@@ -27,11 +27,11 @@ The goal of SoftGreen is to allow teachers to sign up for course sections in an 
 Python 3.0.0 or above installed
 
 ## Installation Instructions:
-pip install -r requirements.pip
+'''pip install -r requirements.pip'''
 
 ## Dev Server Instructions:
-Python models.py
-Python SoftGreen.py
+'''Python models.py'''
+'''Python SoftGreen.py'''s
 
 ## Libraries Used:
 BootStraps
